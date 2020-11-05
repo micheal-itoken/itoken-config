@@ -1,7 +1,11 @@
+def project_url = "https://github.com/micheal-itoken/itoken-config.git"
+def github_auth = "e7894059-b883-4196-9a79-c3622a5d4341"
 node {
     def mvnHome
     stage('Preparation') { // for display purposes
-        echo 'pull code'
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+            doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
+            userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
     stage('Build') {
         echo 'build code'
