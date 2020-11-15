@@ -8,11 +8,10 @@ node {
             userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
     stage('构建代码') {
-        def workepath = $(cd $(dirname $0); pwd)
-        echo '1111'
-        echo $workepath
-        echo '2222'
-        sh "mvn clean package"
+        dir('/var/jenkins_home/workspace/itoken-config') {
+            // some block
+            sh "mvn clean package"
+        }
     }
     stage('Results') {
         echo 'deploy code'
