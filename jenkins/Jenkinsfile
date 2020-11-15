@@ -8,7 +8,7 @@ node {
             userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
     stage('构建代码') {
-        def basepath=$(cd `dirname $0`; pwd)
+        def basepath=$(cd 'dirname $0'; pwd)
         echo  $basepath
         sh "mvn -f itoken-config clean install"
         sh "mvn -f ${project_name} clean package"
