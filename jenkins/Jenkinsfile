@@ -1,5 +1,5 @@
-def project_url = "git@github.com:micheal-itoken/itoken-config.git"
-def github_auth = "3d9e50972be9316389dfdad81a705ee028ab9b02"
+def project_url = "https://github.com/micheal-itoken/itoken-config.git"
+def github_auth = "ebd4cc1e-8c5d-410d-b8e0-d6a2401f9412"
 node {
     def mvnHome
     stage('拉取代码') { // for display purposes
