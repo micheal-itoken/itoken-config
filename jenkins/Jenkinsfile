@@ -8,6 +8,7 @@ node {
             userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
     stage('构建代码') {
+        sh "mvn clean package"
     }
     stage('Results') {
         echo 'deploy code'
