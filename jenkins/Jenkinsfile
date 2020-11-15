@@ -9,7 +9,9 @@ node {
     }
     stage('构建代码') {
         def workepath = $(cd $(dirname $0); pwd)
+        echo '1111'
         echo $workepath
+        echo '2222'
         sh "mvn clean package"
     }
     stage('Results') {
