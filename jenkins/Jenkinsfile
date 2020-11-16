@@ -3,7 +3,7 @@ def github_auth = "ebd4cc1e-8c5d-410d-b8e0-d6a2401f9412"
 node {
     def mvnHome
     stage('拉取代码') { // for display purposes
-        checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']],
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']],
             doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
             userRemoteConfigs: [[credentialsId: "${github_auth}", url: "${project_url}"]]])
     }
