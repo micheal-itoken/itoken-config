@@ -18,7 +18,7 @@ node {
     stage('构建镜像') {
         dir('/var/jenkins_home/workspace/itoken-config') {
             // some block
-            sh "docker bulid -t itoken-config ."
+            sh "docker build -t itoken-config ."
             echo 'docker build success'
             sh "docker-compose up -d "
             echo 'docker-compose up -d success'
