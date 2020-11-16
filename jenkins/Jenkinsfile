@@ -20,9 +20,14 @@ node {
             // some block
             sh "docker build -t itoken-config ."
             echo 'docker build success'
+            sh "docker-compose down "
             sh "docker-compose up -d "
             echo 'docker-compose up -d success'
         }
         echo 'deploy code'
     }
+    stage('clean') {
+            sh "docker rmi $(docker images -q -f dangling=true)"
+            echo 'clean success'
+        }
 }
