@@ -11,9 +11,18 @@ node {
         dir('/var/jenkins_home/workspace/itoken-config') {
             // some block
             sh "/app/maven/maven-3.6.3/bin/mvn clean package"
+            echo 'bu ild success'
+            sh "cp target/itoken-config-1.0.0-SNAPSHOT.jar docker/"
         }
     }
-    stage('Results') {
+    stage('构建镜像') {
+        dir('/var/jenkins_home/workspace/itoken-config') {
+            // some block
+            sh "docker bulid -t itoken-config ."
+            echo 'docker build success'
+            sh "docker-compose up -d "
+            echo 'docker-compose up -d success'
+        }
         echo 'deploy code'
     }
 }
