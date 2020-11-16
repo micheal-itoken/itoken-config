@@ -16,7 +16,7 @@ node {
         }
     }
     stage('构建镜像') {
-        dir('/var/jenkins_home/workspace/itoken-config') {
+        dir('/var/jenkins_home/workspace/itoken-config/docker') {
             // some block
             sh "cd docker"
             sh "docker build -t itoken-config ."
